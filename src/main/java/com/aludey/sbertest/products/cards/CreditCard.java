@@ -10,7 +10,7 @@ public class CreditCard extends AbstractCard {
 
     private final BigDecimal initialBalance;
 
-    private BigDecimal debt = null;
+    private BigDecimal debt = BigDecimal.ZERO;
 
 
     public CreditCard() {
@@ -30,16 +30,25 @@ public class CreditCard extends AbstractCard {
     }
 
     public BigDecimal debtRequest() {
-        if (debt != null) return debt;
-        else {
-            debt = initialBalance.subtract(this.balance);
-            if (debt.signum() > -1) return debt;
-            else return debt = BigDecimal.ZERO;
-        }
+         BigDecimal possibleDebt = initialBalance.subtract(balance);
+         if (possibleDebt.signum() > -1) return possibleDebt;
+         else return BigDecimal.ZERO;
     }
 
     public BigDecimal chargePercentage() {
         return debt.multiply(BigDecimal.valueOf(1 + percentageRate));
+    }
+
+    @Override
+    public void deposit(BigDecimal money) {
+        super.deposit(money);
+        debt = debtRequest();
+    }
+
+    @Override
+    public void withdraw(BigDecimal money) throws ArithmeticException {
+        super.withdraw(money);
+        debt = debtRequest();
     }
 
     public void setPercentageRate(double percentageRate) {
