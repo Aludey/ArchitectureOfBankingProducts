@@ -46,7 +46,7 @@ class CreditCardTest {
     }
 
     @Test
-    void setPercentageRate() {
+    void testSetPercentageRateMethod() {
         double newPercentageRate = 0.25;
         creditCard.setPercentageRate(newPercentageRate);
         assertEquals(newPercentageRate, creditCard.getPercentageRate(),"Percentage Rates doesn't match");

@@ -20,7 +20,7 @@ class CurrencyDebitCardTest {
     String initialName = "Legit Currency Debit Card Card";
 
     @BeforeEach
-    void createCreditCard(){
+    void createCurrencyDebitCard(){
         currencyDebitCard = new CurrencyDebitCard(initialCurrency, initialBalance, initialName);
     }
 
@@ -68,17 +68,17 @@ class CurrencyDebitCardTest {
     }
 
     @Test
-    void getCurrency() {
+    void testGetCurrencyMethod() {
         assertEquals(initialCurrency, currencyDebitCard.getCurrency(), "Currencies doesn't match");
     }
 
     @Test
-    void getBalance() {
+    void testGetBalanceMethod() {
         assertEquals(initialBalance, currencyDebitCard.getBalance(), "Balances doesn't match");
     }
 
     @Test
-    void getName() {
+    void testGetNameMethod() {
         assertEquals(initialName, currencyDebitCard.getName(), "Names doesn't match");
     }
 }
