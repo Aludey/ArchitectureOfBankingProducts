@@ -14,10 +14,18 @@ public abstract class AbstractDeposit implements BankProduct {
     protected String name;
 
     public void deposit(BigDecimal money) {
-        this.balance = balance.add(money);
+        balance = balance.add(money);
     }
 
-    public BigDecimal balance() {
-        return this.balance;
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public String getName() {
+        return name;
     }
 }

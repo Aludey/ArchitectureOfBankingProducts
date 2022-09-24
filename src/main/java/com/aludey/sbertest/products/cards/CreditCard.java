@@ -4,7 +4,7 @@ import com.aludey.sbertest.utils.Currency;
 
 import java.math.BigDecimal;
 
-public class CreditCard extends AbstractCard{
+public class CreditCard extends AbstractCard {
 
     private double percentageRate;
 
@@ -14,11 +14,11 @@ public class CreditCard extends AbstractCard{
 
 
     public CreditCard() {
-        this.currency = Currency.RUB;
-        this.balance = new BigDecimal("50000");
-        this.initialBalance = this.balance;
-        this.name = "Default Credit Card";
-        this.percentageRate = 0.2;
+        currency = Currency.RUB;
+        balance = new BigDecimal("50000");
+        initialBalance = this.balance;
+        name = "Default Credit Card";
+        percentageRate = 0.2;
     }
 
     public CreditCard(Currency currency, BigDecimal balance, String name, double percentageRate) {
@@ -32,7 +32,7 @@ public class CreditCard extends AbstractCard{
     public BigDecimal debtRequest() {
         if (debt != null) return debt;
         else {
-            debt = this.initialBalance.subtract(this.balance);
+            debt = initialBalance.subtract(this.balance);
             if (debt.signum() > -1) return debt;
             else return debt = BigDecimal.ZERO;
         }
@@ -42,7 +42,19 @@ public class CreditCard extends AbstractCard{
         return debt.multiply(BigDecimal.valueOf(1 + percentageRate));
     }
 
-    public void setPercentageRate(double percentageRate){
+    public void setPercentageRate(double percentageRate) {
         this.percentageRate = percentageRate;
+    }
+
+    public double getPercentageRate() {
+        return percentageRate;
+    }
+
+    public BigDecimal getInitialBalance() {
+        return initialBalance;
+    }
+
+    public BigDecimal getDebt() {
+        return debt;
     }
 }

@@ -26,4 +26,8 @@ public class CommonDeposit extends AbstractDeposit {
         this.balance = BigDecimal.ZERO;
         this.status = "Closed";
     }
+
+    public String getStatus() {
+        return status;
+    }
 }

@@ -6,5 +6,5 @@ public interface BankProduct {
 
     void deposit(BigDecimal money);
 
-    BigDecimal balance();
+    BigDecimal getBalance();
 }

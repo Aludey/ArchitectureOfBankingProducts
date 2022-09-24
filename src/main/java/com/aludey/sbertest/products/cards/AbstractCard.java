@@ -15,14 +15,22 @@ public abstract class AbstractCard implements BankProduct {
 
 
     public void deposit(BigDecimal money) {
-        this.balance = balance.add(money);
+        balance = balance.add(money);
     }
 
-    public void withdraw(BigDecimal money){
-        this.balance = balance.subtract(money);
+    public void withdraw(BigDecimal money) {
+        balance = balance.subtract(money);
     }
 
-    public BigDecimal balance() {
-        return this.balance;
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public String getName() {
+        return name;
     }
 }
