@@ -18,8 +18,9 @@ public abstract class AbstractCard implements BankProduct {
         balance = balance.add(money);
     }
 
-    public void withdraw(BigDecimal money) {
-        balance = balance.subtract(money);
+    public void withdraw(BigDecimal money) throws ArithmeticException {
+        if (balance.compareTo(money) > -1) balance = balance.subtract(money);
+        else throw new ArithmeticException("The balance is less than the requested amount!");
     }
 
     public Currency getCurrency() {
