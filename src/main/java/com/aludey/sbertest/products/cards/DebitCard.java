@@ -12,8 +12,8 @@ public class DebitCard extends AbstractCard {
         name = "Default Debit Card";
     }
 
-    public DebitCard(Currency currency, BigDecimal balance, String name) {
-        this.currency = currency;
+    public DebitCard(BigDecimal balance, String name) {
+        this.currency = Currency.RUB;
         this.balance = balance;
         this.name = name;
     }
