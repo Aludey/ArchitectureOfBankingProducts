@@ -63,14 +63,14 @@ class CreditCardTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"0.01","1", "100", "14999", "14999.99"})
+    @ValueSource(strings = {"0.01", "1", "100", "14999", "14999.99"})
     void testCommonWithdrawMethodWOException(BigDecimal withdrawMoney) {
         creditCard.withdraw(withdrawMoney);
         assertEquals(initialBalance.subtract(withdrawMoney), creditCard.getBalance(),"Balances doesn't match");
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"100", "999", "999.99"})
+    @ValueSource(strings = {"100", "15000", "15999.99", "16000"})
     void testWithdrawMethodBalanceMoreThatInitialBalanceWOException(BigDecimal withdrawMoney) {
         BigDecimal deposit = new BigDecimal("1000");
         creditCard.deposit(deposit);
@@ -81,9 +81,7 @@ class CreditCardTest {
     @ParameterizedTest
     @ValueSource(strings = {"100", "1", "0.01"})
     void testWithdrawMethodException(BigDecimal addition) {
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
-            creditCard.withdraw(initialBalance.add(addition));
-        });
+        Exception exception = assertThrows(ArithmeticException.class, () -> creditCard.withdraw(initialBalance.add(addition)));
         assertEquals("The balance is less than the requested amount!", exception.getMessage());
     }
 
