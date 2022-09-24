@@ -63,9 +63,7 @@ class CurrencyDebitCardTest {
     @ParameterizedTest
     @ValueSource(strings = {"100", "1", "0.01"})
     void testWithdrawMethodException(BigDecimal addition) {
-        Exception exception = assertThrows(ArithmeticException.class, () -> {
-            currencyDebitCard.withdraw(initialBalance.add(addition));
-        });
+        Exception exception = assertThrows(ArithmeticException.class, () -> currencyDebitCard.withdraw(initialBalance.add(addition)));
         assertEquals("The balance is less than the requested amount!", exception.getMessage());
     }
 
