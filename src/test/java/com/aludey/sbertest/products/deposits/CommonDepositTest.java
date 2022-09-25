@@ -12,12 +12,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CommonDepositTest {
 
-
     CommonDeposit commonDeposit;
 
-    Currency initialCurrency = Currency.EUR;
-    BigDecimal initialBalance = new BigDecimal(1000);
-    String initialName = "Some Common Deposit";
+    final Currency initialCurrency = Currency.EUR;
+    final BigDecimal initialBalance = new BigDecimal(1000);
+    final String initialName = "Some Common Deposit";
 
     @BeforeEach
     void createCommonDeposit(){

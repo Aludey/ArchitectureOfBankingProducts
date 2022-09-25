@@ -15,9 +15,9 @@ public class DebitCardTest {
 
     DebitCard debitCard;
 
-    Currency currency = Currency.RUB;
-    BigDecimal initialBalance = new BigDecimal(1000);
-    String initialName = "Useful Debit Card Card";
+    final Currency currency = Currency.RUB;
+    final BigDecimal initialBalance = new BigDecimal(1000);
+    final String initialName = "Useful Debit Card Card";
 
     @BeforeEach
     void createDebitCard(){

@@ -15,9 +15,9 @@ public class CurrencyDebitCardTest {
 
     CurrencyDebitCard currencyDebitCard;
 
-    Currency initialCurrency = Currency.USD;
-    BigDecimal initialBalance = new BigDecimal(1000);
-    String initialName = "Legit Currency Debit Card Card";
+    final Currency initialCurrency = Currency.USD;
+    final BigDecimal initialBalance = new BigDecimal(1000);
+    final String initialName = "Legit Currency Debit Card Card";
 
     @BeforeEach
     void createCurrencyDebitCard(){

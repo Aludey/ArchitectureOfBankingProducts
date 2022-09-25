@@ -15,10 +15,10 @@ public class CreditCardTest {
 
     CreditCard creditCard;
 
-    Currency initialCurrency = Currency.RUB;
-    BigDecimal initialBalance = new BigDecimal(15000);
-    String initialName = "Beneficial Credit Card";
-    double initialPercentageRate = 0.15;
+    final Currency initialCurrency = Currency.RUB;
+    final BigDecimal initialBalance = new BigDecimal(15000);
+    final String initialName = "Beneficial Credit Card";
+    final double initialPercentageRate = 0.15;
 
     @BeforeEach
     void createCreditCard(){
