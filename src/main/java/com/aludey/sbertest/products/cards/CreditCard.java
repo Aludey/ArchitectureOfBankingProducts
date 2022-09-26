@@ -10,7 +10,7 @@ public class CreditCard extends AbstractCard {
 
     private final BigDecimal initialBalance;
 
-    private BigDecimal debt = BigDecimal.ZERO;
+    private BigDecimal debt;
 
     public CreditCard(Currency currency, BigDecimal balance, String name, double percentageRate) {
         this.currency = currency;
@@ -18,6 +18,7 @@ public class CreditCard extends AbstractCard {
         this.initialBalance = this.balance;
         this.name = name;
         this.percentageRate = percentageRate;
+        this.debt = BigDecimal.ZERO;
     }
 
     public BigDecimal debtRequest() {
