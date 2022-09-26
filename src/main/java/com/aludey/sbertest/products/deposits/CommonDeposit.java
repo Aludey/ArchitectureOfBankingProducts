@@ -6,8 +6,6 @@ import java.math.BigDecimal;
 
 public class CommonDeposit extends AbstractDeposit {
 
-    private String status;
-
     public CommonDeposit(Currency currency, BigDecimal balance, String name) {
         this.currency = currency;
         this.balance = balance;
@@ -16,7 +14,7 @@ public class CommonDeposit extends AbstractDeposit {
     }
 
     public void closeDeposit() throws IllegalStateException {
-        if (!getStatus().equals("Closed")){
+        if (!getStatus().equals("Closed")) {
             this.balance = BigDecimal.ZERO;
             this.status = "Closed";
         } else throw new IllegalStateException("Deposit is already closed!");

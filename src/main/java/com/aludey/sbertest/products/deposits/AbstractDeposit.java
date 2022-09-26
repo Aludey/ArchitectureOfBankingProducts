@@ -1,31 +1,12 @@
 package com.aludey.sbertest.products.deposits;
 
-import com.aludey.sbertest.products.BankProduct;
-import com.aludey.sbertest.utils.Currency;
+import com.aludey.sbertest.products.AbstractBankProductWithBalance;
 
-import java.math.BigDecimal;
+public abstract class AbstractDeposit extends AbstractBankProductWithBalance {
 
-public abstract class AbstractDeposit implements BankProduct {
+    protected String status;
 
-    protected Currency currency;
+    abstract String getStatus();
 
-    protected BigDecimal balance;
-
-    protected String name;
-
-    public void deposit(BigDecimal money) {
-        balance = balance.add(money);
-    }
-
-    public Currency getCurrency() {
-        return currency;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public String getName() {
-        return name;
-    }
+    abstract void closeDeposit();
 }
